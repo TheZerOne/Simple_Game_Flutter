@@ -1,4 +1,5 @@
 import 'package:first_game/game_controller.dart';
+import 'package:flame/sprite.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:ui';
 
@@ -23,11 +24,19 @@ class Player {
   void render(Canvas c){
     Paint color = Paint()..color = Color(0xFF0000FF);
     c.drawRect(playerRect, color );
+    Sprite boy = Sprite('boy.png');
 
 
   }
 
   void update(double t){
+    //print(currentHealth);
+    if(!isDead && currentHealth <= 0){
+      isDead = true;
+      //reset the game
+
+
+    }
 
   }
 }

@@ -21,12 +21,52 @@ class Enemy {
     );
   }
 
-  void render(Canvas c){
+  void render(Canvas c) {
     Color color;
-    switch (health){
+    switch (health) {
       case 1:
-      color = Color(0xFFFF7F7F);
-      
+        color = Color(0xFFFF7F7F);
+        break;
+      case 2:
+        color = Color(0xFFFF4C4C);
+        break;
+      case 3:
+        color = Color(0xFFFF4500);
+        break;
+        default:
+        color = Color(0xFFFF0000);
+        break;
     }
+    Paint enemyColor = Paint()..color = color;
+    c.drawRect(enemyRect, enemyColor);
+  }
+
+  void update(double t){
+    if(!isDead){
+      double stepDistance = speed*t;
+      Offset toPlayer = gameController.player.playerRect.center - enemyRect.center;
+      if(stepDistance <= toPlayer.distance -gameController.tileSize*1.25){
+        Offset stepToPlayer = Offset.fromDirection(toPlayer.direction, stepDistance);
+        enemyRect = enemyRect.shift(stepToPlayer);
+      } else{
+        attack();
+      }
+    }
+  }
+
+  void attack(){
+    if(!gameController.player.isDead){
+      gameController.player.currentHealth -= damage;
+    }
+  }
+
+  void onTapDown(){
+     if(!isDead){
+       health--;
+       if(health <=0){
+         isDead =true;
+         //score
+       }
+     }
   }
 }

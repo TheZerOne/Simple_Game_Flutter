@@ -24,6 +24,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   flame: ^0.17.0
   shared_preferences: ^0.5.4+5
+  spritewidget:
 
 dev_dependencies:
   flutter_test:
@@ -40,6 +41,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/images/boy.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

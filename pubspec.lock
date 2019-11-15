@@ -212,6 +212,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.5"
+  spritewidget:
+    dependency: "direct main"
+    description:
+      name: spritewidget
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.23"
   stack_trace:
     dependency: transitive
     description:
