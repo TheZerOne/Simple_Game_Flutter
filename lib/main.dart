@@ -3,6 +3,7 @@ import 'package:flame/util.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 void main() async{
@@ -12,7 +13,9 @@ void main() async{
   //locks the devices at portrait
   await flameUtil.setOrientation(DeviceOrientation.portraitUp);
 
-  GameController gamecontroller = GameController();
+  SharedPreferences storage = await SharedPreferences.getInstance();
+
+  GameController gamecontroller = GameController(storage);
   
   runApp(gamecontroller.widget);
 
