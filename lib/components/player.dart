@@ -1,4 +1,5 @@
 import 'package:first_game/game_controller.dart';
+import 'package:flame/flame.dart';
 import 'package:flame/sprite.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:ui';
@@ -9,6 +10,7 @@ class Player {
   int currentHealth;
   Rect playerRect;
   bool isDead = false;
+  Sprite boy = Sprite('boy.png');
 
   Player(this.gameController) {
     maxHealth = currentHealth = 300;
@@ -22,9 +24,10 @@ class Player {
   }
 
   void render(Canvas c){
-    Paint color = Paint()..color = Color(0xFF0000FF);
-    c.drawRect(playerRect, color );
-    Sprite boy = Sprite('boy.png');
+    //Paint color = Paint()..color = Color(0xFF0000FF);
+    //c.drawRect(playerRect, color );
+    boy.render(c);
+    
 
 
   }
