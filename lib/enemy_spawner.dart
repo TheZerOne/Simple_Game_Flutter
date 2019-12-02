@@ -9,6 +9,7 @@ class EnemySpawner {
   final int maxEnemies = 7;
   int currentInterval;
   int nextSpawn;
+  int a;
 
   EnemySpawner(this.gameController) {
     initialize();
